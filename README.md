@@ -1,77 +1,66 @@
-🌦️ MCP Travel Assistant Server Integration with Claude Code
-This project integrates a Travel Assistant Server into Claude Code using the MCP (Modular Command Protocol) configuration.
+# 🌦️ MCP Travel Assistant Server Integration with Claude Code
 
-⚙️ Setup Instructions
+This project integrates a **Travel Assistant Server** into Claude Code using the MCP (Modular Command Protocol) configuration.
+
+## ⚙️ Setup Instructions
+
 Follow the steps below to set up and run the Travel Assistant server through Claude Code.
 
-1. ✅ Configure Claude Code
-Add the following snippet to your Claude Code configuration file (usually found in the settings):
+### 1. ✅ Configure Claude Code
 
-JSON:
+Add the following snippet to your Claude Code configuration file (usually found in the settings):
+json
 {
-  "mcpServers": {
-    "weather": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "your-directory//mcp-server",
-        "run",
-        "server.py"
-      ]
-    }
-  }
+  "mcpServers": {
+    "weather": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "your-directory//mcp-server",
+        "run",
+        "server.py"
+      ]
+    }
+  }
 }
 
 Replace "your-directory//mcp-server" with the actual path to your MCP server directory.
 
-This configuration tells Claude Code how to run your Travel Assistant server using uv (e.g., uvicorn) and the correct project path.
+> 📝 This configuration tells Claude Code how to run your Travel Assistant server using uv (such as uvicorn) and the correct project path.
 
-2. 🔐 Set Up Environment Variables
-To authenticate the server with the backend securely:
+### 2. 🔐 Set Up Environment Variables
 
-In the root of your project, create a file named .env.
+In order for the server to authenticate with the backend, you need to provide credentials securely.
 
-Add the following lines:
-
-.env:
+1. In the root of your project, create a file named .env.
+2. Add the following lines to store your **Client ID** and **Client Secret** obtained from **Amaneus**:
 
 CLIENT_ID=your-client-id-here
 CLIENT_SECRET=your-client-secret-here
 
-Replace your-client-id-here and your-client-secret-here with the actual credentials obtained from Amaneus.
+### 3. ⚡ Set Up the Environment Using uv
+To prepare your Python environment and install dependencies, use uv:
 
-⚡ Set Up the Environment Using uv
-To prepare your Python environment and install dependencies:
+Make sure you have uv installed. If not, install it by running:
 
-✅ Install uv (if not already installed)
 curl -Ls https://astral.sh/uv/install.sh | sh
 
-🛠️ Create a Virtual Environment
+Create a virtual environment named .venv in your project root:
+
 uv venv .venv
 
-🔄 Activate the Virtual Environment
-On Windows:
+Activate the virtual environment:
 
+On Windows:
 .venv\Scripts\activate
 
-On macOS/Linux:
-
-source .venv/bin/activate
-
-📦 Install Dependencies
-Make sure requirements.txt exists in your root directory, then run:
+Install all required dependencies from requirements.txt:
 
 uv pip install -r requirements.txt
 
-🚀 Running the Server
+### 4. 🚀 Running the Server
 Once everything is configured:
 
-Claude Code will automatically detect and run the Travel Assistant MCP server using the configuration you added.
+Claude Code will automatically detect and run the Travel Assistant MCP server when it's needed, using the MCP configuration you set up earlier.
 
-Ensure:
-
-Your virtual environment is activated.
-
-Your .env file exists and contains valid credentials.
-
-You're now ready to use the Travel Assistant within Claude Code! ✈️💬
+Make sure your virtual environment is activated and your .env file is present before running Claude Code or using the assistant feature.
