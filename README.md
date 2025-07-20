@@ -9,7 +9,7 @@ Follow the steps below to set up and run the Travel Assistant server through Cla
 ### 1. ✅ Configure Claude Code
 
 Add the following snippet to your Claude Code configuration file (usually found in the settings):
-json
+```json
 {
   "mcpServers": {
     "weather": {
@@ -23,7 +23,7 @@ json
     }
   }
 }
-
+```
 Replace "your-directory//mcp-server" with the actual path to your MCP server directory.
 
 > 📝 This configuration tells Claude Code how to run your Travel Assistant server using uv (such as uvicorn) and the correct project path.
@@ -34,29 +34,31 @@ In order for the server to authenticate with the backend, you need to provide cr
 
 1. In the root of your project, create a file named .env.
 2. Add the following lines to store your **Client ID** and **Client Secret** obtained from **Amaneus**:
-
+```console
 CLIENT_ID=your-client-id-here
 CLIENT_SECRET=your-client-secret-here
-
+```
 ### 3. ⚡ Set Up the Environment Using uv
 To prepare your Python environment and install dependencies, use uv:
 
 Make sure you have uv installed. If not, install it by running:
-
+```console
 curl -Ls https://astral.sh/uv/install.sh | sh
-
+```
 Create a virtual environment named .venv in your project root:
-
+```console
 uv venv .venv
-
+```
 Activate the virtual environment:
 
 On Windows:
+```console
 .venv\Scripts\activate
-
+```
 Install all required dependencies from requirements.txt:
-
+```console
 uv pip install -r requirements.txt
+```
 
 ### 4. 🚀 Running the Server
 Once everything is configured:
